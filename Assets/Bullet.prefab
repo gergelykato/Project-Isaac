@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: a320f370115cc4435b02a68bb8deca52, type: 3}
-  m_Color: {r: 0.23584908, g: 0.21693666, b: 0.21693666, a: 1}
+  m_Color: {r: 0.9339623, g: 0.048460312, b: 0.048460312, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  isEnemyBullet: 0
 --- !u!61 &4577158861269295977
 BoxCollider2D:
   m_ObjectHideFlags: 0
