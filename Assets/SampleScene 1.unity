@@ -380,7 +380,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -536,7 +536,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1069,10 +1069,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  range: 0
+  enemyType: 1
+  range: 10
   speed: 0
-  attackRange: 0
+  attackRange: 5
+  bulletSpeed: 5
   coolDown: 0
+  bulletPrefab: {fileID: 5202327523287013594, guid: 48191fa95881d4a14a26ee468eeb9460, type: 3}
 --- !u!212 &749270430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1329,10 +1332,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
+  enemyType: 0
   range: 10
   speed: 1
   attackRange: 1
+  bulletSpeed: 0
   coolDown: 2
+  bulletPrefab: {fileID: 0}
 --- !u!1 &860868252
 GameObject:
   m_ObjectHideFlags: 0
