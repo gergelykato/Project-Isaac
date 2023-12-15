@@ -31,11 +31,11 @@ public class RoomController : MonoBehaviour
 
     void Start()
     {
-        LoadRoom("Start", 0, 0);
-        LoadRoom("Empty", 1, 0);
-        LoadRoom("Empty", -1, 0);
-        LoadRoom("Empty", 0, 1);
-        LoadRoom("Empty", 0, -1);
+        //LoadRoom("Start", 0, 0);
+        //LoadRoom("Empty", 1, 0);
+        //LoadRoom("Empty", -1, 0);
+        //LoadRoom("Empty", 0, 1);
+        //LoadRoom("Empty", 0, -1);
         
     }
 
@@ -87,25 +87,33 @@ public class RoomController : MonoBehaviour
 
     public void RegisterRoom(Room room)
     {
-        room.transform.position = new Vector3(
-            currentLoadRoomData.X * room.Widht,
-            currentLoadRoomData.Y * room.Height,
-            0
-        );
-
-        room.X = currentLoadRoomData.X;
-        room.Y = currentLoadRoomData.Y;
-        room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
-        room.transform.parent = transform;
-
-        isLoadingRoom = false;
-
-        if (loadedRooms.Count == 0)
+        if(!DoesRoomExist(currentLoadRoomData.X, currentLoadRoomData.Y))
         {
-            CameraController.instance.currRoom = room;
-        }
+            room.transform.position = new Vector3(
+                currentLoadRoomData.X * room.Widht,
+                currentLoadRoomData.Y * room.Height,
+                0
+            );
 
-        loadedRooms.Add(room);
+            room.X = currentLoadRoomData.X;
+            room.Y = currentLoadRoomData.Y;
+            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
+            room.transform.parent = transform;
+
+            isLoadingRoom = false;
+
+            if (loadedRooms.Count == 0)
+            {
+                CameraController.instance.currRoom = room;
+            }
+
+            loadedRooms.Add(room);
+        }
+        else 
+        {
+            Destroy(room.gameObject);
+            isLoadingRoom = false;
+        }
     }
     public bool DoesRoomExist(int x, int y)
     {
